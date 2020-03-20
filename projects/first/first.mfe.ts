@@ -9,6 +9,9 @@ import {createCustomElement} from '@angular/elements';
 export class FirstMfe {
   constructor(private sharedMfe: SharedMfe) {
     sharedMfe.registerMfe('MFE-ONE', FirstMfe);
+    // ONLY ADDED This LINES
+    sharedMfe.initInsights({instrumentationKey: "XXXX-XXXX-XXXX"})
+    //######################
   }
 }
 
