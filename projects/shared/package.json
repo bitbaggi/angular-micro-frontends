@@ -12,7 +12,10 @@
     "dest": "../../dist/shared",
     "lib": {
       "entryFile": "./shared.mfe.ts",
-      "umdId": "mfe.shared"
+      "umdId": "mfe.shared",
+      "umdModuleIds": {
+        "@microsoft/applicationinsights-web": "applicationinsightsWeb"
+      }
     },
     "deleteDestPath": true
   }

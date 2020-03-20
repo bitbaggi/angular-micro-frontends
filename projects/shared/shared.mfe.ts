@@ -1,4 +1,4 @@
-import {Component, Injectable, NgModule, Type} from '@angular/core';
+import {Injectable, Type} from '@angular/core';
 import {ApplicationInsights} from "@microsoft/applicationinsights-web";
 
 @Injectable({providedIn: 'platform'})
@@ -12,21 +12,10 @@ export class SharedMfe {
     }
 
 
-    // ONLY ADDED This LINES
+    // ADDED THESE LINES
     private insights: ApplicationInsights;
     public initInsights(config: { instrumentationKey: string }) {
         this.insights = new ApplicationInsights({config: {instrumentationKey: config.instrumentationKey}});
     }
-    /// ####################################
-}
-
-@Component({template: 'Shared Component', selector: 'mfe-shared'})
-export class SharedComponent {
-}
-
-@NgModule({
-    declarations: [SharedComponent],
-    exports: [SharedComponent]
-})
-export class SharedMfeModule {
+    // !ADDED THESE LINES
 }

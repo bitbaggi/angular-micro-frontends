@@ -1,10 +1,10 @@
-import {SharedMfe, SharedMfeModule} from '@angular-mfe/shared';
+import {SharedMfe} from '@angular-mfe/shared';
 import {Component, DoBootstrap, Injector, NgModule, getPlatform} from '@angular/core';
 import {BrowserModule, platformBrowser} from '@angular/platform-browser';
 import {createCustomElement} from '@angular/elements';
 
 @Component({
-  template: `<p>First Angular Micro Frontend</p> <p><mfe-shared></mfe-shared></p>`
+  template: `<p>First Angular Micro Frontend</p>`
 })
 export class FirstMfe {
   constructor(private sharedMfe: SharedMfe) {
@@ -15,10 +15,7 @@ export class FirstMfe {
   }
 }
 
-@NgModule({
-  declarations: [FirstMfe],
-  imports: [BrowserModule, SharedMfeModule]
-})
+@NgModule({declarations: [FirstMfe], imports: [BrowserModule]})
 export class FirstMfeModule implements DoBootstrap {
   constructor(private injector: Injector) {}
 
