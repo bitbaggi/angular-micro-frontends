@@ -16,6 +16,8 @@ export class SharedMfe {
     private insights: ApplicationInsights;
     public initInsights(config: { instrumentationKey: string }) {
         this.insights = new ApplicationInsights({config: {instrumentationKey: config.instrumentationKey}});
+        // ensure insights are initialized
+      console.log(this.insights);
     }
     // !ADDED THESE LINES
 }

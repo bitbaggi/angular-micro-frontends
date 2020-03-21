@@ -14,7 +14,7 @@
       "entryFile": "./shared.mfe.ts",
       "umdId": "mfe.shared",
       "umdModuleIds": {
-        "@microsoft/applicationinsights-web": "applicationinsightsWeb"
+        "@microsoft/applicationinsights-web": "Microsoft.ApplicationInsights"
       }
     },
     "deleteDestPath": true
