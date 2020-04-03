@@ -14,8 +14,27 @@ export class SharedMfe {
 
     // ADDED THESE LINES
     private insights: ApplicationInsights;
+
     public initInsights(config: { instrumentationKey: string }) {
-        this.insights = new ApplicationInsights({config: {instrumentationKey: config.instrumentationKey}});
+        this.insights = new ApplicationInsights({
+            config: {instrumentationKey: config.instrumentationKey}
+        });
+        this.insights.loadAppInsights();
     }
+
+    setUserId = (userId: string) => {
+        this.insights.context.user.id = userId;
+        this.insights.setAuthenticatedUserContext(userId);
+    };
+
+    logEvent = (trackingEvent: TrackingEvent) => this.insights.trackEvent({
+        name: trackingEvent.trackingEvent,
+        properties: trackingEvent.properties
+    })
     // !ADDED THESE LINES
+}
+
+export class TrackingEvent implements TrackingEvent {
+    trackingEvent: string;
+    properties: { [propName: string]: string | number | Date | boolean };
 }
